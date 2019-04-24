@@ -1,8 +1,8 @@
 /*
-Theme Name: Flock Creative Networdk - WP Starter Kit
+Theme Name: Flock Creative Network - WP Starter Kit
 Theme URI: https://flock.company/
 Author: Hardiansa
-Description: Flock Creative Networdk - WP Starter Kit
+Description: Flock Creative Network - WP Starter Kit
 Version: 1.0
 Tags: responsive, clean, minimal, modern, documentation
 */
@@ -10,7 +10,12 @@ Tags: responsive, clean, minimal, modern, documentation
 /* -------------------------------------------------------------------------------------------------
 1. Vendor
 -------------------------------------------------------------------------------------------------- */
-
+@import "normalize";
+@import "susy";
+@import "breakpoint";
+@import "compass";
+@import "compass/reset";
+@import "compass/typography/vertical_rhythm";
 
 
 /* -------------------------------------------------------------------------------------------------

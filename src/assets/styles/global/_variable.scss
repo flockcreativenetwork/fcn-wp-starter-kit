@@ -1,0 +1,77 @@
+// Color 
+$primaryColor: #5FBDA1;
+$secondaryColor: #707070;
+$grayColor: #BBBBBB;
+$lightGrayColor: #E9E9E9;
+$whiteColor: #fff;
+
+// Font
+$primaryFont: 'Open Sans', sans-serif;
+
+// Breakpoint
+$mobile: 0 768px;
+$desktop: 768px;
+
+
+// Grid
+$susy: (
+    flow: ltr,
+    math: fluid,
+    output: float,
+    gutter-position: after,
+    container: 1024px,
+    container-position: center,
+    columns: 12,
+    gutters: 2/4,
+    column-width: false,
+    global-box-sizing: content-box,
+    last-flow: to,
+    debug: (
+      image: overlay,
+      color: rgba(#66f, .25),
+      output: overlay,
+      toggle: bottom right,
+    ),
+);
+
+$susy-small: (
+    global-box-sizing: border-box,
+    container: 90%,
+    columns: 6,
+    gutters: 2/4,
+    gutter-position: inside,  
+    use-custom: (
+        // rem: true
+    )
+);
+
+
+// Spacing
+$gutter: (
+    xxs: 4px,
+    xs: 8px,
+    s:16px,
+    m: 24px,
+    l: 32px,
+    xl: 48px,
+    xxl: 64px,
+    xxxl: 128px,
+);
+
+// z-index
+$lv-1: 0;
+$lv-2: 5;
+$lv-3: 10;
+$lv-4: 15;
+$lv-5: 20;
+$lv-over: 99999;
+
+// Form Component
+$field-height: 50px;
+
+// Radius
+$rounds: (
+    s: 3px,
+    m: 6px,
+    l: 9px
+)

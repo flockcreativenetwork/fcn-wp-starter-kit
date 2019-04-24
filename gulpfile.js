@@ -1,12 +1,11 @@
 const { gulp, series, parallel, dest, src, watch } = require('gulp');
 const babel = require('gulp-babel');
-const beeper = require('beeper');
 const browserSync = require('browser-sync');
 const concat = require('gulp-concat');
 const connect = require('gulp-connect-php');
 const del = require('del');
-const log = require('fancy-log');
 const fs = require('fs');
+const gutil = require('gulp-util');
 const imagemin = require('gulp-imagemin');
 const inject = require('gulp-inject-string');
 const partialimport = require('postcss-easy-import');
@@ -18,11 +17,12 @@ const remoteSrc = require('gulp-remote-src');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-vinyl-zip');
+const sass = require('gulp-sass');
 
 /* -------------------------------------------------------------------------------------------------
 Theme Name
 -------------------------------------------------------------------------------------------------- */
-const themeName = 'wordpressify';
+const themeName = 'fcn-wp-starter-kit';
 
 /* -------------------------------------------------------------------------------------------------
 PostCSS Plugins
@@ -60,6 +60,17 @@ const pluginsListProd = [
 		],
 	}),
 ];
+
+/* -------------------------------------------------------------------------------------------------
+SCSS Plugin
+-------------------------------------------------------------------------------------------------- */
+const CSSLibrary = [
+	'./node_modules/susy/sass',
+	'./node_modules/normalize-scss/sass/',
+	'./node_modules/breakpoint-sass/stylesheets',
+	'./node_modules/compass-mixins/lib/'
+];
+
 
 /* -------------------------------------------------------------------------------------------------
 Header & Footer JavaScript Boundles
@@ -100,9 +111,9 @@ async function copyConfig() {
 }
 
 async function installationDone() {
-	await beeper();
-	await log(devServerReady);
-	await log(thankYou);
+	await gutil.beep();
+	await gutil.log(devServerReady);
+	await gutil.log(thankYou);
 }
 
 exports.setup = series(cleanup, downloadWordPress);
@@ -128,7 +139,7 @@ function devServer() {
 		},
 	);
 
-	watch('./src/assets/styles/**/*.css', stylesDev);
+	watch('./src/assets/styles/**/*.scss', stylesDev);
 	watch('./src/assets/js/**', series(footerScriptsDev, Reload));
 	watch('./src/assets/img/**', series(copyImagesDev, Reload));
 	watch('./src/assets/fonts/**', series(copyFontsDev, Reload));
@@ -144,7 +155,7 @@ function Reload(done) {
 
 function copyThemeDev() {
 	if (!fs.existsSync('./build')) {
-		log(buildNotFound);
+		gutil.log(buildNotFound);
 		process.exit(1);
 	} else {
 		return src('./src/theme/**').pipe(dest('./build/wordpress/wp-content/themes/' + themeName));
@@ -164,10 +175,12 @@ function copyFontsDev() {
 }
 
 function stylesDev() {
-	return src('./src/assets/styles/style.css')
+	return src('./src/assets/styles/style.scss')
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sourcemaps.init())
-		.pipe(postcss(pluginsListDev))
+		.pipe(sass({
+			includePaths: CSSLibrary	
+		}).on("error", sass.logError))
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('./build/wordpress/wp-content/themes/' + themeName))
 		.pipe(browserSync.stream({ match: '**/*.css' }));
@@ -233,7 +246,7 @@ function copyFontsProd() {
 function stylesProd() {
 	return src('./src/assets/styles/style.css')
 		.pipe(plumber({ errorHandler: onError }))
-		.pipe(postcss(pluginsListProd))
+		.pipe(sass({ includePaths: CSSLibrary }).on("error", sass.logError))
 		.pipe(dest('./dist/themes/' + themeName));
 }
 
@@ -277,10 +290,10 @@ function zipProd() {
 	return src('./dist/themes/' + themeName + '/**/*')
 		.pipe(zip.dest('./dist/' + themeName + '.zip'))
 		.on('end', () => {
-			beeper();
-			log(pluginsGenerated);
-			log(filesGenerated);
-			log(thankYou);
+			gutil.beep();
+			gutil.log(pluginsGenerated);
+			gutil.log(filesGenerated);
+			gutil.log(thankYou);
 		});
 }
 
@@ -300,8 +313,8 @@ exports.prod = series(
 Utility Tasks
 -------------------------------------------------------------------------------------------------- */
 const onError = err => {
-	beeper();
-	log(wpFy + ' - ' + errorMsg + ' ' + err.toString());
+	gutil.beep();
+	gutil.log(wpFy + ' - ' + errorMsg + ' ' + err.toString());
 	this.emit('end');
 };
 
@@ -309,11 +322,11 @@ async function disableCron() {
 	if (fs.existsSync('./build/wordpress/wp-config.php')) {
 		await fs.readFile('./build/wordpress/wp-config.php', (err, data) => {
 			if (err) {
-				log(wpFy + ' - ' + warning + ' WP_CRON was not disabled!');
+				gutil.log(wpFy + ' - ' + warning + ' WP_CRON was not disabled!');
 			}
 			if (data) {
 				if (data.indexOf('DISABLE_WP_CRON') >= 0) {
-					log('WP_CRON is already disabled!');
+					gutil.log('WP_CRON is already disabled!');
 				} else {
 					return src('./build/wordpress/wp-config.php')
 						.pipe(inject.after("define('DB_COLLATE', '');", "\ndefine('DISABLE_WP_CRON', true);"))
@@ -334,15 +347,15 @@ exports.fresh = series(freshInstall);
 
 function Backup() {
 	if (!fs.existsSync('./build')) {
-		log(buildNotFound);
+		gutil.log(buildNotFound);
 		process.exit(1);
 	} else {
 		return src('./build/**/*')
 			.pipe(zip.dest('./backups/' + date + '.zip'))
 			.on('end', () => {
-				beeper();
-				log(backupsGenerated);
-				log(thankYou);
+				gutil.beep();
+				gutil.log(backupsGenerated);
+				gutil.log(thankYou);
 			});
 	}
 }
