@@ -51,6 +51,7 @@
 		"compass-mixins": "^0.12.10",
 		"compass-sass-mixins": "^0.12.7",
 		"gulp-sass": "^4.0.2",
+		"gulp-util": "^3.0.8",
 		"normalize-scss": "^7.0.1",
 		"susy": "2.2.14"
 	}
