@@ -65,10 +65,8 @@ const pluginsListProd = [
 SCSS Plugin
 -------------------------------------------------------------------------------------------------- */
 const CSSLibrary = [
-	'./node_modules/susy/sass',
 	'./node_modules/normalize-scss/sass/',
-	'./node_modules/breakpoint-sass/stylesheets',
-	'./node_modules/compass-mixins/lib/'
+	'./node_modules/bootstrap/scss/'
 ];
 
 
@@ -77,12 +75,12 @@ Header & Footer JavaScript Boundles
 -------------------------------------------------------------------------------------------------- */
 const headerJS = [
 	'./node_modules/jquery/dist/jquery.js',
-	'./node_modules/nprogress/nprogress.js',
-	'./node_modules/aos/dist/aos.js',
-	'./node_modules/isotope-layout/dist/isotope.pkgd.js',
 ];
 
-const footerJS = ['./src/assets/js/**'];
+const footerJS = [
+	'./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+	'./src/assets/js/**'
+];
 
 /* -------------------------------------------------------------------------------------------------
 Installation Tasks

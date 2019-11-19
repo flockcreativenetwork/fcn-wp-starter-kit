@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Regular'), local('Nunito-Regular'),
+        url('./fonts/subset-Nunito-Regular.woff2') format('woff2'),
+        url('./fonts/subset-Nunito-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: local('Muli Regular'), local('Muli-Regular'),
+        url('./fonts/subset-Muli-Regular.woff2') format('woff2'),
+        url('./fonts/subset-Muli-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: local('Muli Bold'), local('Muli-Bold'),
+        url('./fonts/subset-Muli-Bold.woff2') format('woff2'),
+        url('./fonts/subset-Muli-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: local('Nunito Bold'), local('Nunito-Bold'),
+        url('./fonts/subset-Nunito-Bold.woff2') format('woff2'),
+        url('./fonts/subset-Nunito-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: local('Muli Black'), local('Muli-Black'),
+        url('./fonts/subset-Muli-Black.woff2') format('woff2'),
+        url('./fonts/subset-Muli-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
