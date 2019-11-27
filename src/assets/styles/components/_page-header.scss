@@ -1,0 +1,29 @@
+.page-header {
+    background: $bg-gradiend;
+    padding: spacing(xl) 0;
+
+    @include media-breakpoint-down(md){
+        padding: spacing(m) 0;
+    }
+
+    .container {
+        .title {
+            line-height: 0;
+
+            @include media-breakpoint-down(md){
+                line-height: 1.5;
+                font-size: 2rem;
+            }
+
+            > .cta {
+                color: $yellow;
+            }
+        }
+
+        .caption {
+            font-size: 1.5rem;
+            color: $white;
+            font-weight: 300;
+        }
+    }
+}

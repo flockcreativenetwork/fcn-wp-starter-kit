@@ -22,7 +22,7 @@ const sass = require('gulp-sass');
 /* -------------------------------------------------------------------------------------------------
 Theme Name
 -------------------------------------------------------------------------------------------------- */
-const themeName = 'fcn-wp-starter-kit';
+const themeName = 'informatika-dev';
 
 /* -------------------------------------------------------------------------------------------------
 PostCSS Plugins
@@ -67,7 +67,8 @@ SCSS Plugin
 const CSSLibrary = [
 	'./node_modules/susy/sass',
 	'./node_modules/normalize-scss/sass/',
-	'./node_modules/breakpoint-sass/stylesheets',
+  './node_modules/breakpoint-sass/stylesheets',
+  './node_modules/bootstrap/scss/',
 	'./node_modules/compass-mixins/lib/'
 ];
 
@@ -76,13 +77,12 @@ const CSSLibrary = [
 Header & Footer JavaScript Boundles
 -------------------------------------------------------------------------------------------------- */
 const headerJS = [
-	'./node_modules/jquery/dist/jquery.js',
-	'./node_modules/nprogress/nprogress.js',
-	'./node_modules/aos/dist/aos.js',
-	'./node_modules/isotope-layout/dist/isotope.pkgd.js',
+	'./node_modules/jquery/dist/jquery.js'
 ];
 
-const footerJS = ['./src/assets/js/**'];
+const footerJS = [
+  './src/assets/js/**'
+]
 
 /* -------------------------------------------------------------------------------------------------
 Installation Tasks
@@ -244,7 +244,7 @@ function copyFontsProd() {
 }
 
 function stylesProd() {
-	return src('./src/assets/styles/style.css')
+	return src('./src/assets/styles/style.scss')
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(sass({ includePaths: CSSLibrary }).on("error", sass.logError))
 		.pipe(dest('./dist/themes/' + themeName));

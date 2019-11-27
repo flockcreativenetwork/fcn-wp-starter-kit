@@ -16,17 +16,30 @@ Tags: responsive, clean, minimal, modern, documentation
 @import "compass";
 @import "compass/reset";
 @import "compass/typography/vertical_rhythm";
-
+@import "bootstrap";
 
 /* -------------------------------------------------------------------------------------------------
 2. Global
 -------------------------------------------------------------------------------------------------- */
-
+@import "./global/fonts";
+@import "./global/variable";
+@import "./global/function";
+@import "./global/typography";
+@import "./global/commons";
 
 
 /* -------------------------------------------------------------------------------------------------
 3. Components
 -------------------------------------------------------------------------------------------------- */
+@import './components/navbar';
+@import './components/page-header';
+@import './components/card';
+@import './components/pagination';
+@import './components/footer';
+@import './components/footer-nav';
+@import './components/section';
+@import './components/sidebar';
+@import './components/related-post';
 
 
 
@@ -39,3 +52,5 @@ Tags: responsive, clean, minimal, modern, documentation
 /* -------------------------------------------------------------------------------------------------
 5. Page
 -------------------------------------------------------------------------------------------------- */
+@import './pages/single-post';
+@import './pages/single-case-study';

@@ -1,11 +1,18 @@
 <?php get_header(); ?>
+
+<?php 
+    $title = 'Mau <span class="cta"> Upgrade Skill </span> apa hari ini ?';
+    $caption = 'Temukan berbagai tutorial dan studi kasus dalam dunia informatika di sini';
+    get_page_header($title, $caption);
+?>
+
 <!-- container -->
 <div class="container">	
 	<!-- site-content -->
 	<div class="site-content">
 
 		<!-- main-column -->
-		<div class="main-column grid">
+		<div class="row">
 			<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) :
@@ -27,8 +34,6 @@
 		</div> 
 	</div>
 	<!-- /site-content -->
-
-	<?php get_sidebar(); ?>
 </div>
 <!-- /container -->
 

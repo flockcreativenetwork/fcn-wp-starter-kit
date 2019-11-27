@@ -1,0 +1,20 @@
+.pagination {
+    border-top: 1px solid $ui-border;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .page-numbers {
+        padding: spacing(s);
+        color: $grey4;
+        font-weight: 300;
+        border-top: 1px solid transparent;
+        margin-top: -1px;
+
+        &.current {
+            color: $blue;
+            font-weight: 500;
+            border-top: 1px solid $blue;
+        }
+    }
+}

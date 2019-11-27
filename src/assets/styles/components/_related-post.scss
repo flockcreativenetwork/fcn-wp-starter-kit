@@ -1,0 +1,21 @@
+.related-post {
+
+    &__item {
+        margin-bottom: spacing(s);
+    }
+
+    &__image {
+        margin-right: spacing(xs);
+    }
+
+    &__date {
+        font-weight: 300;
+        font-size: .8rem;
+        color: $grey4;
+    }
+
+    a {
+        color: $black;
+    }
+
+}

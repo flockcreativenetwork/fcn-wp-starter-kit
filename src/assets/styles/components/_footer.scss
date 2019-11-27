@@ -1,0 +1,39 @@
+.footer {
+    background: $bg-content;
+    padding: spacing(l) 0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+
+    @include media-breakpoint-down(md){
+        padding: spacing(s) 0;
+    }
+
+    .copyright {
+        @include media-breakpoint-down(md){
+            display: flex;
+            justify-content: center;
+            padding: spacing(s);
+        }
+    }
+
+    .menu {
+        .menu-footer-menu-container {
+            @include media-breakpoint-down(md){
+                justify-content: center;
+            }
+        }
+
+        .navbar-nav {
+            @include media-breakpoint-down(md){
+                flex-flow: column;
+            }
+
+            .menu-item {
+                @include media-breakpoint-down(md){
+                    display: flex;
+                    justify-content: center;
+                    padding: spacing(xxs);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.section {
+    &-title {
+        color: $blue;
+        margin-bottom: spacing(m);
+
+        &.-two-color {
+            color: $black;
+
+            .blue {
+                color: $blue !important;
+            }
+        }
+    }
+}

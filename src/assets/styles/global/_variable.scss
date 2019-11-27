@@ -1,12 +1,32 @@
 // Color 
-$primaryColor: #5FBDA1;
-$secondaryColor: #707070;
-$grayColor: #BBBBBB;
-$lightGrayColor: #E9E9E9;
-$whiteColor: #fff;
+$black: #344854;
+$blue: #2CC9DE;
+$yellow: #FBF104;
+$grey1: #FCFCFC;
+$grey2: #F2F2F2;
+$grey3: #BDBDBD;
+$grey4: #9B9B9B;
+$white: #fff;
+
+
+// UI Color
+$ui-content: $black;
+$ui-link: $blue;
+$ui-meta: $grey3;
+$ui-border: $grey2;
+
+
+// Bg
+$bg-content: $white;
+$bg-body: $grey1;
+$bg-gradiend: linear-gradient(360deg, #2CC9DE 0%, #31B3F5 100%);
+
 
 // Font
-$primaryFont: 'Open Sans', sans-serif;
+$primaryFont: 'Work Sans', sans-serif;
+$secondaryFont: 'Playfair Display', sans-serif;
+
+$fs-base: 16px;
 
 // Breakpoint
 $mobile: 0 768px;

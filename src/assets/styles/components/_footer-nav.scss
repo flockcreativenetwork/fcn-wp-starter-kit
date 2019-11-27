@@ -1,0 +1,19 @@
+.menu-footer-menu-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .navbar-nav {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        a {
+            @include media-breakpoint-up(md){
+                padding-right: 0;
+                margin-right: 0 !important;
+            }
+        }
+    }
+}

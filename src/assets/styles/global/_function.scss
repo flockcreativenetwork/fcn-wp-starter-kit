@@ -71,3 +71,12 @@
   &::-moz-placeholder          {@content}
   &:-ms-input-placeholder      {@content}  
 }
+
+@function spacing($key) {
+    @if map-has-key($gutter, $key) {
+        @return map-get($gutter, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}

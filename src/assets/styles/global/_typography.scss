@@ -1,0 +1,14 @@
+.text {
+    &-display {
+        font-family: $secondaryFont;
+        font-size: 3.125rem;
+
+        &.light {
+            color: $white;
+        }
+
+        &.dark {
+            color: $black;
+        }
+    }
+}

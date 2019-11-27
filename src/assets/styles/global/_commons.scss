@@ -1,1 +1,36 @@
 @include normalize();
+
+html, body {
+    font-family: $primaryFont;
+    font-size: $fs-base;
+    background-color: $bg-body;
+
+    @include media-breakpoint-down(md){
+        font-size: 14px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $blue;
+
+    &:hover {
+        text-decoration: none;
+        color: $blue;
+    }
+}
+
+
+.row {
+    a {
+        display: inline-block;
+    }
+}
+
+.site-content {
+    padding: spacing(xxl) 0;
+
+    @include media-breakpoint-down(md){
+        padding: spacing(l) 0;
+    }
+}

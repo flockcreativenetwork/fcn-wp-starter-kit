@@ -1,0 +1,39 @@
+.navbar {
+    background-color: $bg-content;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    z-index: $lv-5;
+
+    &-brand {
+        img {
+            @include media-breakpoint-down(md) {
+                height: 30px;
+                width: auto;
+            }
+        }
+    }
+
+    &-nav {
+        .menu-item a {
+            text-transform: uppercase;
+            font-weight: 500;
+            color: $ui-content;
+            text-decoration: none;
+            @extend .mx-3;
+
+            &:hover {
+                color: $blue;
+            }
+        }
+
+        .current_page_item {
+            a {
+                color: $blue !important;
+            }
+        }
+
+
+        .sub-menu {
+            display: none;
+        }
+    }
+}

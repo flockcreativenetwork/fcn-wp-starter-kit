@@ -1,53 +1,47 @@
-<article class="grid-item post <?php if ( has_post_thumbnail() ) {
-?>has-thumbnail <?php } ?>" data-aos="fade-up">
-	<!-- post-thumbnail -->
-	<div class="post-thumbnail">
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'small-thumbnail' ); ?></a>
-	</div>
-	<!-- /post-thumbnail -->
+<div class="col-md-4 col-sm-12">
+    <div class="card card--post">
+        <!-- Post Thubnail -->
+        <a href="<?php the_permalink() ?>" class="card-hero">
+            <?php the_post_thumbnail() ?>
+        </a>
 
-	<!-- inner-content -->
-	<div class="inner-content">
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<p class="post-info">
-			<?php echo get_the_excerpt(); ?>
-			<?php
-			$categories = get_the_category();
-			$separator  = ', ';
-			$output     = '';
+        <!-- Post Body -->
+        <div class="card-body">
 
-			if ( $categories ) {
-				?>
-				<div class="tags">
-					<?php
-					foreach ( $categories as $category ) {
-						$output .= '<a href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a>' . $separator;
-					}
-					echo trim( $output, $separator );
-					?>
-				</div>
-				<?php
-			}
-			?>
-		</p>
+            <!-- Categories -->
+            <?php 
+            $categories = get_the_category();
+            $cat_output = '';
+            $separator = ', ';
+            if ( $categories) { ?>
 
-		<?php if ( is_search() or is_archive() ) { ?>
-			<p class="excerpt content">
-				<a href="<?php the_permalink(); ?>" class="button">Read More</a>
-			</p>
-		<?php
-} else {
-	if ( $post->post_excerpt ) {
-			?>
-			<p class="excerpt">
-				<?php echo get_the_excerpt(); ?>
-				<a href="<?php the_permalink(); ?>" class="button">Read More</a>
-			</p>
-			<?php
-	} else {
-	}
-}
-		?>
-	</div>
-	<!-- /inner-content -->
-</article>
+                <div class="card-categories">
+                    <?php 
+                        foreach($categories as $category) {
+                            $output .= '<a href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a>' . $separator;
+                        }
+                        echo trim( $output, $separator);
+                    ?>
+                </div>
+
+            <?php } ?>
+            <!-- End Categories -->
+            
+            <h2 class="card-title"> <a href="<?php the_permalink() ?>"> <?php the_title() ?> </a></h2>
+        </div>
+
+
+        <!-- Card Footer -->
+        <div class="card-footer">
+            <div class="card-footer-wrapper d-flex flex-align-center">
+                <span class="card-author d-flex flex-align-center">
+                    <span class="cart-author-initial"> <?php echo substr(get_the_author_meta('display_name'), 0, 1)?></span>
+                    <span class="cart-author-name"> <?php echo get_the_author_meta('display_name') ?></span>
+                </span>
+                <span class="card-timepost ml-auto">
+                    <?php echo get_the_date() ?>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,11 @@
 <?php
+
+require 'inc/register.php';
+require 'inc/template-function.php';
+require 'inc/filter-function.php';
+require 'inc/action.php';
+require 'inc/filter.php';
+
 function wordpressify_resources() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 	wp_enqueue_script( 'header_js', get_template_directory_uri() . '/js/header-bundle.js', null, 1.0, false );
@@ -50,3 +57,5 @@ function wordpressify_widgets() {
 }
 
 add_action( 'widgets_init', 'wordpressify_widgets' );
+
+

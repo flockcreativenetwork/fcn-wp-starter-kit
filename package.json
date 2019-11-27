@@ -37,7 +37,7 @@
 		"gulp-uglify": "^3.0.2",
 		"gulp-vinyl-zip": "^2.1.2",
 		"isotope-layout": "^3.0.6",
-		"jquery": "^3.4.0",
+		"jquery": "^3.4.1",
 		"normalize.css": "^8.0.1",
 		"nprogress": "^0.2.0",
 		"postcss-easy-import": "^3.0.0",
@@ -47,12 +47,14 @@
 		"stylelint-config-standard": "^18.3.0"
 	},
 	"dependencies": {
+		"bootstrap": "4.3.1",
 		"breakpoint-sass": "^2.7.1",
 		"compass-mixins": "^0.12.10",
 		"compass-sass-mixins": "^0.12.7",
 		"gulp-sass": "^4.0.2",
 		"gulp-util": "^3.0.8",
 		"normalize-scss": "^7.0.1",
+		"popper.js": "^1.16.0",
 		"susy": "2.2.14"
 	}
 }
